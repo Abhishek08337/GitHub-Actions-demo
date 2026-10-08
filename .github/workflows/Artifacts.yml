@@ -7,13 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: creating
-        run: echo "Hi This is a artitfact from abhi build" > build.txt
+        run: |
+          echo "Hi This is a artitfact from abhi build" > build.txt
+          echo "AIDIHFBdHAhHBABOQHWHC" > testing.txt
 
       - name: uploading artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build file
-          path: build.txt
+          name: build/test file
+          path: |
+            build.txt
+            testing.txt
 
   Test-Deploy:
     runs-on: ubuntu-latest
@@ -21,9 +25,10 @@ jobs:
       - name: download stage
         uses: actions/download-artifact@v4
         with:
-          name: build file
+          name: build/test file
 
       - name: test-deploy
         run: |
           cat build.txt
+          cat testing.txt
           echo "workflow successful"
