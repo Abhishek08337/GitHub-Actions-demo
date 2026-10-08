@@ -1,0 +1,13 @@
+name: if-statement
+on:
+  workflow_dispatch:
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: always run
+        run: echo "This Always runs"
+
+      - name: only run when on main
+        if: github.ref == 'refs/heads/main'
+        run: echo "running on main"
