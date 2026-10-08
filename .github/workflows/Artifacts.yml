@@ -1,0 +1,28 @@
+name: artifacts and paths
+on:
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: creating
+        run: echo "Hi This is a artitfact from abhi build" > build.txt
+
+      - name: uploading artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build file
+          path: build.txt
+
+  Test-Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test stage
+        uses: actions/artifact-download@v4
+        with:
+          name: build file
+        run: echo "Testing "
+
+      - name: deploy
+        run: cat build.txt
