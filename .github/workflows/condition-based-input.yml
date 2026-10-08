@@ -19,10 +19,10 @@ jobs:
         if: inputs.env == 'Development'
         run: echo "Deploying to Dev"
 
-      - name: Dev
+      - name: Test
         if: inputs.env == 'testing'
         run: echo "Deploying to test"
 
-      - name: Dev
+      - name: Prod
         if: inputs.env == 'production'
-        run: echo "prod"
+        run: echo "Deploying to prod"
