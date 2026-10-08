@@ -1,0 +1,8 @@
+name: ci
+on:
+  push:
+  pull_request:
+
+jobs:
+  call-reusable-ci:
+    uses: ./.github/workflows/reusable-ci.yml
