@@ -8,4 +8,4 @@ jobs:
     uses: ./.github/workflows/reusable-node-input.yml
 
     with: 
-      node-version: "420"
+      node-version: "20"
