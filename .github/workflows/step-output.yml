@@ -1,16 +1,15 @@
-name: Step Outputs
-
+name: step demo
 on:
   workflow_dispatch:
 
 jobs:
-  demo:
+  job-1:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Generate version
-        id: version
-        run: echo "version=1.0.0" >> "$GITHUB_OUTPUT"
+      - name: create version
+        id: ghver
+        run: echo "ghver = 3.0" >> "$GITHUB_OUTPUT"
 
-      - name: Show version
-        run: 'echo "Version is ${{ steps.version.outputs.version }}"'
+      - name: check version
+        run: 'echo "Version is: ${{ steps.ghver.outputs.ghver}}"'
