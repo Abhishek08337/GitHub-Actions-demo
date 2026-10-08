@@ -1,0 +1,10 @@
+name: workflow-call-resuable-input
+on: 
+  push:
+  pull_request: 
+
+jobs:
+  ci-pipeline:
+    uses: ./.github/workflows/reusable-node-input.yml
+
+    with: "420"
