@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
+      - name: after checkout
+        run: ls -la
       - name: Build
         run: echo "This is Build stage"
       - name: test
