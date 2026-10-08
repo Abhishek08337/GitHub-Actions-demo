@@ -1,4 +1,4 @@
-name: if-statement
+name: if-Condition
 on:
   workflow_dispatch:
 jobs:
