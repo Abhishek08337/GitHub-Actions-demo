@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: create version
         id: ghver
-        run: echo "ghver = 3.0" >> "$GITHUB_OUTPUT"
+        run: echo "ghver=3.0" >> "$GITHUB_OUTPUT"
 
       - name: check version
         run: 'echo "Version is: ${{ steps.ghver.outputs.ghver}}"'
