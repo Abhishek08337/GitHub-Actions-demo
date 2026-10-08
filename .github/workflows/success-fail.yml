@@ -12,7 +12,7 @@ jobs:
         if: failure()
         run: |
           echo "running tests"
-          exit-1
+          exit 1
 
       - name: Success
         if: success()
