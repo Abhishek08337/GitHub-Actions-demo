@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Create Version
         id: version
-        run: echo "Version = 1.0.0" >> "GITHUB_OUTPUT"
+        run: echo "Version = 3.0" >> "GITHUB_OUTPUT"
 
       - name: show version
         run: 'echo "Version is: ${{ steps.version.outputs.version }}"'
