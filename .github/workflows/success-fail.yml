@@ -20,5 +20,5 @@ jobs:
 
       - name: always
         if: always()
-        run: "This will run always even if the workflow passed/failed"
+        run: echo "This will run always even if the workflow passed/failed"
         
