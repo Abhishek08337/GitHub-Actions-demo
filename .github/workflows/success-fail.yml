@@ -17,4 +17,8 @@ jobs:
       - name: Success
         if: success()
         run: echo "Tests passed"
+
+      - name: always
+        if: always()
+        run: "This will run always even if the workflow passed/failed"
         
