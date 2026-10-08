@@ -1,0 +1,23 @@
+name: reusable-node-input
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        description: "enter the node version"
+        required: true
+        type: string
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setting node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+     
+      - name: check-version
+        run: node --version
