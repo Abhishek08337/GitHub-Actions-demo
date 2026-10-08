@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version:
-          - 1.0.0
-          - 2.23
-          - 3.14
-    
+        asach:
+          - abhi
+          - nitin
+          - pranay
+          
     steps:
       - name: show version
-        run: echo "Testing Version Is ${{ matrix.version}}"
+        run: echo "Testing Version Is ${{ matrix.asach }}"
