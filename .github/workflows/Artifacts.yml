@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test stage
-        uses: actions/artifact-download@v4
+        uses: actions/download-artifact@v4
         with:
           name: build file
         run: echo "Testing "
