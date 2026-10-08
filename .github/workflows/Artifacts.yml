@@ -18,11 +18,12 @@ jobs:
   Test-Deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: test stage
+      - name: download stage
         uses: actions/download-artifact@v4
         with:
           name: build file
-        run: echo "Testing "
 
-      - name: deploy
-        run: cat build.txt
+      - name: test-deploy
+        run: |
+          cat build.txt
+          echo "workflow successful"
