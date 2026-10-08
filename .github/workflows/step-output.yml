@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Version
-        id: version
+        id: ver
         run: echo "version = 3.0" >> "GITHUB_OUTPUT"
 
       - name: show version
-        run: echo "${{ steps.version.outputs.version }}"
+        run: echo "${{ steps.ver.outputs.version }}"
         
