@@ -1,0 +1,17 @@
+name: matrix-build
+on:
+  workflow_dispatch: 
+
+jobs:
+  matrix-:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version:
+          - 1
+          - 2
+          - 3
+    
+    steps:
+      - name: show version
+        run: echo "Testing Version Is ${{ matrix.version}}"
