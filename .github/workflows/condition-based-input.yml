@@ -1,0 +1,28 @@
+name: condition-based-input
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: "Select env"
+        required: true
+        type: choice
+        options:
+          - Development
+          - testing
+          - production
+
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dev
+        if: inputs.env == 'Development'
+        run: echo "Deploying to Dev"
+
+      - name: Dev
+        if: inputs.env == 'testing'
+        run: echo "Deploying to test"
+
+      - name: Dev
+        if: inputs.env == 'production'
+        run: echo "prod"
