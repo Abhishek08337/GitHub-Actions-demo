@@ -14,18 +14,19 @@ jobs:
       - name: uploading artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build/test file
+          name: build-test file
           path: |
             build.txt
             testing.txt
 
   Test-Deploy:
+    needs: Build
     runs-on: ubuntu-latest
     steps:
       - name: download stage
         uses: actions/download-artifact@v4
         with:
-          name: build/test file
+          name: build-test file
 
       - name: test-deploy
         run: |
