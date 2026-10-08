@@ -7,4 +7,5 @@ jobs:
   ci-pipeline:
     uses: ./.github/workflows/reusable-node-input.yml
 
-    with: "420"
+    with: 
+      node-version: "420"
