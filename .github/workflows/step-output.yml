@@ -11,5 +11,5 @@ jobs:
         run: echo "Version = 3.0" >> "GITHUB_OUTPUT"
 
       - name: show version
-        run: 'echo "Version is: ${{ steps.version.outputs.version }}"'
+        run: 'echo "Version is ${{ steps.version.outputs.version }}"'
         
