@@ -1,4 +1,5 @@
 name: runs-on-matrix
+
 on:
   workflow_dispatch:
 
@@ -9,12 +10,15 @@ jobs:
         include:
           - os: ubuntu-latest
             node-version: "1.2"
+
           - os: windows-latest
             node-version: "1.4"
+
           - os: ubuntu-latest
             node-version: "1.1"
 
-      runs-on: ${{ matrix.os}}
-      steps:
-        - name: Check Node version
-          run: echo "Running on ${{ matrix.os }} with Node ${{ matrix.node-version }}"
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Check Node version
+        run: echo "Running on ${{ matrix.os }} with Node ${{ matrix.node-version }}"
