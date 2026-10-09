@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: person name
-        uses: ./actions/hello/input.yml
+        uses: ./actions/input
         with:
           name: Abhi124
         
