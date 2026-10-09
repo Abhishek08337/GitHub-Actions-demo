@@ -1,0 +1,22 @@
+name: system-info
+description: show system info
+
+runs:
+  using: composite
+
+  steps:
+    - name: show os
+      shell: bash
+      run: uname -a
+
+    - name: show github user
+      shell: bash
+      run: echo "${{ github.actor }}"
+
+    - name: show user
+      shell: bash
+      run: whoami
+
+    - name: Show directory
+      shell: bash
+      run: pwd
