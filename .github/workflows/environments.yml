@@ -1,0 +1,21 @@
+name: environments
+on:
+  workflow_dispatch:
+
+jobs:
+  job-1:
+    environment:
+      name: staging
+    
+    runs-on: ubuntu-latest
+    steps:
+      - name: show staging
+        run: echo "len ${{ secrets.abc }}"
+
+  job-2:
+    environment:
+      name: production
+    runs-on: ubuntu-latest
+    steps:
+      - name: lenght staging
+        run: echo "len ${{ secrets.deploy_token}}"
