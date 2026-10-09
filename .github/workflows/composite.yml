@@ -1,0 +1,13 @@
+name: composite-action
+on:
+  workflow_dispatch: 
+
+jobs:
+  composite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: run-hello-action
+        uses: ./actions/hello
