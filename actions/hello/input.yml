@@ -1,0 +1,17 @@
+name: composite-input
+description: composite with input
+
+inputs:
+  name: 
+    description: name of person
+    required: true
+
+
+runs:
+  using: composite
+  
+  steps:
+    - name: greetings
+      shell: bash
+      run: echo "Hello ${{ inputs.name }}"
+        
