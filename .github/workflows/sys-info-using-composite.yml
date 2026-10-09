@@ -1,0 +1,13 @@
+name: sys-info-using-composite
+on:
+  workflow_dispatch:
+
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: show sys info
+        uses: ./actions/system-info/
