@@ -1,0 +1,48 @@
+name: docker-ci
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - ".github/**"
+      - "actions/**"
+  pull_request:
+    branches:
+      - main
+    paths-ignore: 
+      - ".github/**"
+      - "actions/**"
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      
+      - name: build docker image
+        run: |
+          docker build -t docker-demo:${{ github.sha }} .
+
+      - name: run docker image
+        run: |
+          docker run -d \
+          -p 8080:8080 \
+          --name docker-demo-container \
+          docker-demo:${{ github.sha}}
+      
+      - name: Test application
+        run: |
+          sleep 3
+          curl --fail http://localhost:8080
+
+      - name: Show container logs
+        if: failure()
+        run: |
+          docker logs docker-demo-container
+
+      - name: Stop container
+        if: always()
+        run: |
+          docker stop docker-demo-container || true
+          docker rm docker-demo-container || true
