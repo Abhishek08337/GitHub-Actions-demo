@@ -1,6 +1,9 @@
 name: workflow-call-resuable-input
 on: 
   push:
+    paths-ignore: 
+      - "actions/**"
+      - ".github/**"
   pull_request: 
 
 jobs:
