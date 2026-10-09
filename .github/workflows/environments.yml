@@ -1,6 +1,15 @@
 name: environments
 on:
   workflow_dispatch:
+    inputs:
+      env:
+        description: select the environment
+        required: true
+        type: choice
+        options:
+          - production
+          - staging
+          - testing
 
 jobs:
   job-1:
@@ -13,9 +22,13 @@ jobs:
         run: echo "len ${{ secrets.abc }}"
 
   job-2:
+    needs: job-1
     environment:
       name: production
     runs-on: ubuntu-latest
     steps:
       - name: lenght staging
         run: echo "len ${{ secrets.deploy_token}}"
+
+      - name: show env
+        run: 'echo "current env is:${{ inputs.env }}"'
